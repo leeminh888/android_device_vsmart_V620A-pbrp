@@ -105,6 +105,9 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_MAX_BRIGHTNESS := 255
 TW_SCREEN_BLANK_ON_BOOT := true
 
+# PitchBlack Flags
+PB_DISABLE_DEFAULT_TREBLE_COMP := true
+
 # Security Patch Hack to prevent Anti Rollback
 PLATFORM_SECURITY_PATCH := 2025-12-31
 PLATFORM_VERSION := 16.1.0

@@ -50,6 +50,7 @@ TARGET_PREBUILT_KERNEL := device/vsmart/V620A/prebuilt/Image.gz-dtb
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
+BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
 # Enable chain partition for system.
 BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem

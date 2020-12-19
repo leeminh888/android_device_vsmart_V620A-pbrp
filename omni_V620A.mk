@@ -1,5 +1,7 @@
 #
-# Copyright (C) 2019 The TwrpBuilder Open-Source Project
+# Copyright (C) 2019 The Android Open Source Project
+# Copyright (C) 2019 The TWRP Open Source Project
+# Copyright (C) 2020 SebaUbuntu's TWRP device tree generator 
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,17 +16,26 @@
 # limitations under the License.
 #
 
-# Release name
-PRODUCT_RELEASE_NAME := V620A
+# Specify phone tech before including full_phone
+$(call inherit-product, vendor/omni/config/gsm.mk)
 
+# Inherit some common Omni stuff.
+$(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, build/target/product/embedded.mk)
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/pb/config/common.mk)
+# Inherit Telephony packages
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-## Device identifier. This must come after all inclusions
+# Inherit language packages
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
+# Inherit 64bit support
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := V620A
 PRODUCT_NAME := omni_V620A
 PRODUCT_BRAND := vsmart
-PRODUCT_MODEL := V620A
+PRODUCT_MODEL := Vsmart Live
 PRODUCT_MANUFACTURER := vsmart
+PRODUCT_RELEASE_NAME := Vsmart live
